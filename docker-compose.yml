@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - scd-network
+
+  app:
+    image: alidockerhub101/scd-project25
+    container_name: scd-app
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/scdvault
+    depends_on:
+      - mongodb
+    networks:
+      - scd-network
+
+volumes:
+  mongodb-data:
+    external: true
+
+networks:
+  scd-network:
+    external: true
+    name: scd-private-network

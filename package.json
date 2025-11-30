@@ -1,0 +1,14 @@
+{
+  "name": "scd-project25",
+  "version": "1.0.0",
+  "description": "SCD Project with vault functionality",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mongodb": "^4.17.2"
+  }
+}
