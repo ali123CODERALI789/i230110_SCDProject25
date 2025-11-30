@@ -24,7 +24,7 @@ function menu() {
         rl.question('Enter name: ', name => {
           rl.question('Enter value: ', value => {
             db.addRecord({ name, value });
-            console.log('✅ Record added successfully!');
+            console.log('Record added successfully!');
             menu();
           });
         });
@@ -42,7 +42,7 @@ function menu() {
           rl.question('New name: ', name => {
             rl.question('New value: ', value => {
               const updated = db.updateRecord(Number(id), name, value);
-              console.log(updated ? '✅ Record updated!' : '❌ Record not found.');
+              console.log(updated ? 'Record updated!' : 'Record not found.');
               menu();
             });
           });
@@ -52,13 +52,13 @@ function menu() {
       case '4':
         rl.question('Enter record ID to delete: ', id => {
           const deleted = db.deleteRecord(Number(id));
-          console.log(deleted ? '🗑️ Record deleted!' : '❌ Record not found.');
+          console.log(deleted ? 'Record deleted!' : 'Record not found.');
           menu();
         });
         break;
 
       case '5':
-        console.log('👋 Exiting NodeVault...');
+        console.log('Exiting NodeVault...');
         rl.close();
         break;
 
